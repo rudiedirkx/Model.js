@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<!-- link rel="shortcut icon" type="image/x-icon" href="favicon.ico" / -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Model.js</title>
+</head>
+
+<body>
+
+<script src="class.js"></script>
+<script src="model.js"></script>
+<script>
+function User(data) {
+	Model.call(this, data);
+}
+User.extend(Model, {
+	getters: ['fullname']
+});
+
+var user = new User({
+	firstname: 'Rudie',
+	lastname: 'Dirkx',
+	getFullname: function() {
+		return this.firstname + ' ' + this.lastname;
+	}
+});
+console.log(user);
+</script>
+
+</body>
+
+</html>

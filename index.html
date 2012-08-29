@@ -10,6 +10,38 @@
 
 <body>
 
+<script src="class2.js"></script>
+<script>
+MixerIn = Class({
+	doThis: new Function,
+	doThat: new Function
+});
+
+User2 = Class({
+	talk: function() {
+		return 'Sup!';
+	},
+	walk: function() {
+		return 'step step step';
+	}
+});
+
+var user2a = new User2;
+console.log(user2a, user2a.talk(), user2a.walk());
+
+NamedUser2 = Class({
+	construct: function(name) {
+		this.name = name;
+	},
+	talk: function() {
+		return 'Hi, I am ' + this.name;
+	}
+}, [User2, MixerIn]);
+
+var user2b = new NamedUser2('Jaap');
+console.log(user2b, user2b.talk(), user2b.walk());
+</script>
+
 <script src="class.js"></script>
 <script src="model.js"></script>
 <script>
